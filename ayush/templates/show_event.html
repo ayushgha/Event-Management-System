@@ -1,0 +1,126 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Evento -Event Html Template">
+    <meta name="keywords" content="Evento , Event , Html, Template">
+    <meta name="author" content="ColorLib">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Fonts Icon CSS -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/et-line.css'%}" rel="stylesheet">
+    <link href="{% static 'css/ionicons.min.css' %}" rel="stylesheet">
+    <!-- Carousel CSS -->
+    <link href="{% static 'css/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <title>Inserted</title>
+   <style>
+       table,th,td,tr{
+           border: 1px solid black;
+       }
+       th,tr{
+           text-align: center;
+       }
+   </style>
+</head>
+<body>
+<div class="loader">
+    <div class="loader-outter"></div>
+    <div class="loader-inner"></div>
+</div>
+<header class="header navbar fixed-top navbar-expand-md" style="background-color: #1b1e21">
+    <div class="container">
+        <a class="navbar-brand logo" href="#">
+            <img src="{% static 'img/logowhite.png' %}" alt="SPIT"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headernav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-text-align-right"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-sm-row-reverse" id="headernav">
+            <ul class=" nav navbar-nav menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'render_event_form' %}">Create Event</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link " href="{% url 'show_event' %}">Upcoming Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="{% url 'scan' %}">Scan</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section class="pt100 pb100">
+    <div class="container">
+        <div class="section_title">
+            <h3 class="title">
+                Upcoming Events
+            </h3>
+            <table>
+                <tr>
+                    <th>Event ID</th>
+                    <th>Event</th>
+                    <th>Room No.</th>
+                    <th>Date</th>
+                    <th>Event Starts At</th>
+                    <th>Event Ends At</th>
+                    <th>Description</th>
+                    <th>Attend Event</th>
+                </tr>
+                {% for i, j in context.items %}
+                <tr>
+                    <td>{{ j.EventID }}</td>
+                    <td>{{ j.EventName }}</td>
+                    <td>{{ j.RoomNo }}</td>
+                    <td>{{ j.EventDate }}</td>
+                    <td>{{ j.StartTime }}</td>
+                    <td>{{ j.EndTime }}</td>
+                    <td>{{ j.Description }}</td>
+                    <td><a href="{% url 'reserve' %}" class=" btn btn-primary btn-rounded" >Reserve Seat</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>
+<!-- jquery -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<!-- bootstrap -->
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<!--slick carousel -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!--parallax -->
+<script src="{% static 'js/parallax.min.js' %}"></script>
+<!--Counter up -->
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<!--Counter down -->
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<!-- WOW JS -->
+<script src="{% static 'js/wow.min.js' %}"></script>
+<!-- Custom js -->
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
